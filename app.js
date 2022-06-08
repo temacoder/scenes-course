@@ -1,17 +1,12 @@
 const path = require('path')
 require('dotenv').config({ path: path.join(__dirname, '.env') })
-const { Telegraf, Scenes } = require('telegraf')
-const { Stage } = Scenes
+const { Telegraf } = require('telegraf')
 const LocalSession = require('telegraf-session-local')
 const express = require('express')
 
 const { commandHandler } = require('./src/handlers/commandHandler')
 const { callbackHandler } = require('./src/handlers/callbackHandler')
 const { textHandler } = require('./src/handlers/textHandler')
-
-const { Test } = require('./src/controllers/test')
-
-const stage = new Stage([ Test() ])
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
